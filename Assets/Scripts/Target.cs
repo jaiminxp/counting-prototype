@@ -9,12 +9,20 @@ public class Target : MonoBehaviour
     [SerializeField]
     GameObject Balloon;
 
+    [SerializeField]
+    ParticleSystem explosionParticle;
+
+    [SerializeField]
+    Animator animator;
+
     GameManager gameManager;
 
     float maxTorque = 5;
-    float xRange = 8;
-    float ySpawnPos = 6;
-    float fallSpeed = 5;
+    float xStart = -15;
+    float xEnd = 9;
+    float ySpawnPos = 10;
+    float fallSpeed = 8;
+    float liftSpeed = 5;
 
     void Start()
     {
@@ -25,6 +33,7 @@ public class Target : MonoBehaviour
         rb.velocity = Vector3.down * fallSpeed;
 
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        animator.SetFloat("Speed_f", 1.0f);
     }
 
     float RandomTorque()
@@ -34,7 +43,7 @@ public class Target : MonoBehaviour
 
     Vector3 RandomSpawnPos()
     {
-        return new Vector3(Random.Range(-xRange, xRange), ySpawnPos, -1);
+        return new Vector3(Random.Range(xStart, xEnd), ySpawnPos, -2);
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,6 +56,7 @@ public class Target : MonoBehaviour
                 break;
             case "Ground":
                 Destroy(gameObject);
+                Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
                 gameManager.UpdateDeadScore();
                 break;
         }
@@ -58,8 +68,9 @@ public class Target : MonoBehaviour
         Balloon.SetActive(true);
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
-        rb.velocity = Vector3.up * fallSpeed * 2;
+        rb.velocity = Vector3.up * liftSpeed * 2;
         gameManager.UpdateSavedScore();
+        animator.SetFloat("Speed_f", 0f);
     }
 
 }

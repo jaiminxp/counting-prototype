@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1496619566388515436
 MeshFilter:
@@ -94,17 +94,9 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6634065826708932614}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2452336626224732815
@@ -119,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2db8061b8b4a1cb79d66b68d3dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
 --- !u!114 &6015426058216555564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,4 +124,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4a1e287836c4c87b531b2613baa506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlyCheckLowerBound: 0
