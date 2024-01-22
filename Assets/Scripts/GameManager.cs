@@ -6,7 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject target;
+    List<GameObject> targets;
 
     [SerializeField]
     TextMeshProUGUI savedText, deadText;
@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnRate);
-            Instantiate(target);
+            int index = Random.Range(0, targets.Count);
+            Instantiate(targets[index]);
         }
     }
 

@@ -587,7 +587,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4053575c86a44174a809d0c49ac2f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8010675234257858225, guid: 8c3aa1e6d8e4d4cc998f152ccd48f33d, type: 3}
+  targets:
+  - {fileID: 8010675234257858225, guid: 8c3aa1e6d8e4d4cc998f152ccd48f33d, type: 3}
+  - {fileID: 8010675234257858225, guid: fabde2c99f0f64f2eabadfb38ffcc10e, type: 3}
+  - {fileID: 8010675234257858225, guid: c163260fc321b42b2875e1e27ba7cc0d, type: 3}
+  - {fileID: 8010675234257858225, guid: 3cfd39832e8c64b4281b03ed14f8414e, type: 3}
+  - {fileID: 8010675234257858225, guid: 4deed80be050f4f4cbf4a7f0431cf254, type: 3}
+  - {fileID: 8010675234257858225, guid: b4f9be8cee0ce428a899cd46b086d429, type: 3}
   savedText: {fileID: 1082128808}
   deadText: {fileID: 1452637439}
 --- !u!4 &907626701
