@@ -17,6 +17,11 @@ public class Target : MonoBehaviour
 
     GameManager gameManager;
 
+    AudioSource audioSource;
+
+    [SerializeField]
+    AudioClip balloonSound;
+
     float maxTorque = 5;
     float xStart = -15;
     float xEnd = 9;
@@ -27,6 +32,8 @@ public class Target : MonoBehaviour
     void Start()
     {
         transform.position = RandomSpawnPos();
+
+        audioSource = GetComponent<AudioSource>();
 
         rb = GetComponent<Rigidbody>();
         rb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
@@ -66,9 +73,13 @@ public class Target : MonoBehaviour
     void AttachBalloon()
     {
         Balloon.SetActive(true);
+
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
         rb.velocity = Vector3.up * liftSpeed * 2;
+
+        audioSource.PlayOneShot(balloonSound, 0.5f);
+
         gameManager.UpdateSavedScore();
         animator.SetFloat("Speed_f", 0f);
     }

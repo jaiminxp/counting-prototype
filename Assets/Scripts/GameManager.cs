@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI savedText, deadText;
 
-    float spawnRate = 2.0f;
+    float spawnRate = 1.0f;
     float savedScore = 0;
     float deadScore = 0;
 

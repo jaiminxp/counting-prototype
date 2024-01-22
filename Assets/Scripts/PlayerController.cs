@@ -10,6 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject projectile;
 
+    AudioSource audioSource;
+
+    [SerializeField]
+    AudioClip shootSound;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         FollowCursor();
@@ -34,5 +44,6 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         Instantiate(projectile, shootPoint.position, shootPoint.rotation);
+        audioSource.PlayOneShot(shootSound, 0.8f);
     }
 }
